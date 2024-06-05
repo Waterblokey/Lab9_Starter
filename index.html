@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "c4bb77c9ddf94ed1a54b7152c8034bb4"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+                          
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,75 +109,43 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    class CustomError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'CustomError';
+      }
+    }
+    TrackJS.track('Testing TrackJS!');
+                        
+    let broken_json = '{"age": 25}';
+    let num = 3;
+    let errorMsg = 'num is not equal to 2';
+
+    try {
+      let ryan = JSON.parse(broken_json);
+
+      if (!ryan.name) {
+        throw new CustomError('No name');
+      }
+    } catch (err) {
+      if (err instanceof CustomError) {
+        alert("Invalid data: " + err.message); 
+      } else if (err instanceof SyntaxError) { 
+        alert("JSON Syntax Error: " + err.message);
+      } else {
+        throw err;
+  }
+    } finally {
+      alert('This will always be exectued since it is in a finally block');
+    }
+
 
     errorBtns.forEach(btn => {
-
-      // switch (btn.textContent) {
-      //   case 'Console Log' :
-      //     btn.addEventListener('click', () => {
-      //       console.log('This is a console log');
-      //     });
-      //   case ('Console Error'): 
-      //     btn.addEventListener('click', () => {
-      //       console.error('This is a console error');
-      //     });
-      //   case ('Console Count'):
-      //     btn.addEventListener('click', () => {
-      //       console.count('This is a console count');
-      //     });
-      //   case ('Console Warn'):
-      //     btn.addEventListener('click', () => {
-      //       console.warn('This is a console warn'); 
-      //     }); 
-      //   case ('Console Assert'): 
-      //     btn.addEventListener('click', () => {
-      //       console.assert('This is a console assert');
-      //     });
-      //   case ('Console Clear'):
-      //     btn.addEventListener('click', () => {
-      //       console.clear();
-      //     });
-      //   case ('Console Dir'):
-      //     btn.addEventListener('click', () => {
-      //       console.dir('This is a console dir');
-      //     });
-      //   case ('Console dirxml'):
-      //     btn.addEventListener('click', () => {
-      //       console.dirxml('This is a console dirxml');
-      //     });        
-      //   case ('Console Group Start'):
-      //     btn.addEventListener('click', () => {
-      //       console.group('This is a console group start');
-      //     });        
-      //   case ('Console Group End'):
-      //     btn.addEventListener('click', () => {
-      //       console.groupEnd('This is a console group end');
-      //     });
-      //   case ('Console Table'):
-      //     btn.addEventListener('click', () => {
-      //       console.table('This is a console table');
-      //     });
-      //   case ('Start Timer'):
-      //     btn.addEventListener('click', () => {
-      //       console.time('This is a console time');
-      //     });
-      //   case ('End Timer'):
-      //     btn.addEventListener('click', () => {
-      //       console.timeEnd('This is a console time end');
-      //     });
-      //   case ('Console Trace'):
-      //     btn.addEventListener('click', () => {
-      //       console.trace('This is a console trace');
-      //     });
-      //   case ('Trigger a Global Error'):
-      //     btn.addEventListener('click', () => {
-      //       throw new Error('This is a global error');
-      //     });
-      // }
       btn.addEventListener('click', e => {
         switch (btn.textContent) {
           case 'Console Log' :
             console.log('This is a console log');
+
             break;
           case ('Console Error'): 
             console.error('This is a console error');
@@ -182,42 +157,45 @@
             console.warn('This is a console warn'); 
             break;
           case ('Console Assert'): 
-            console.assert('This is a console assert');
+            console.assert(num === 2, { num, errorMsg });
             break;
           case ('Console Clear'):
             console.clear();
             break;
           case ('Console Dir'):
-            console.dir('This is a console dir');
+            console.dir(btn);
             break;
           case ('Console dirxml'):
-            console.dirxml('This is a console dirxml');
+            console.dirxml(btn);
             break;
           case ('Console Group Start'):
             console.group('This is a console group start');
-            break;
+             break;
           case ('Console Group End'):
-            console.groupEnd('This is a console group end');
+            console.groupEnd();
             break;
           case ('Console Table'):
-            console.table('This is a console table');
+            console.table(["apples", "oranges", "bananas"]);
             break;
           case ('Start Timer'):
-            console.time('This is a console time');
+            console.time('time example');
             break;
           case ('End Timer'):
-            console.timeEnd('This is a console time end');
+            console.timeEnd('time example');
             break;
           case ('Console Trace'):
             console.trace('This is a console trace');
             break;
           case ('Trigger a Global Error'):
-            throw new Error('This is a global error');
+            if (window.onerror) {
+              window.onerror('This is a global error', 'index.html', 1, 1, new Error('This is a global error'));
+            }
             break;
         }
 
       });
      });
+
 
   </script>
 </body>
