@@ -104,6 +104,7 @@
     // You may move this JS to another file if you wish
 
     errorBtns.forEach(btn => {
+
       // switch (btn.textContent) {
       //   case 'Console Log' :
       //     btn.addEventListener('click', () => {
@@ -166,7 +167,7 @@
       //       throw new Error('This is a global error');
       //     });
       // }
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', e => {
         switch (btn.textContent) {
           case 'Console Log' :
             console.log('This is a console log');
@@ -216,7 +217,8 @@
         }
 
       });
-    });
+     });
+
   </script>
 </body>
 
