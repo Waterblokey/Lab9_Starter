@@ -104,68 +104,118 @@
     // You may move this JS to another file if you wish
 
     errorBtns.forEach(btn => {
-      switch (btn.textContent) {
-        case 'Console Log' :
-          btn.addEventListener('click', () => {
+      // switch (btn.textContent) {
+      //   case 'Console Log' :
+      //     btn.addEventListener('click', () => {
+      //       console.log('This is a console log');
+      //     });
+      //   case ('Console Error'): 
+      //     btn.addEventListener('click', () => {
+      //       console.error('This is a console error');
+      //     });
+      //   case ('Console Count'):
+      //     btn.addEventListener('click', () => {
+      //       console.count('This is a console count');
+      //     });
+      //   case ('Console Warn'):
+      //     btn.addEventListener('click', () => {
+      //       console.warn('This is a console warn'); 
+      //     }); 
+      //   case ('Console Assert'): 
+      //     btn.addEventListener('click', () => {
+      //       console.assert('This is a console assert');
+      //     });
+      //   case ('Console Clear'):
+      //     btn.addEventListener('click', () => {
+      //       console.clear();
+      //     });
+      //   case ('Console Dir'):
+      //     btn.addEventListener('click', () => {
+      //       console.dir('This is a console dir');
+      //     });
+      //   case ('Console dirxml'):
+      //     btn.addEventListener('click', () => {
+      //       console.dirxml('This is a console dirxml');
+      //     });        
+      //   case ('Console Group Start'):
+      //     btn.addEventListener('click', () => {
+      //       console.group('This is a console group start');
+      //     });        
+      //   case ('Console Group End'):
+      //     btn.addEventListener('click', () => {
+      //       console.groupEnd('This is a console group end');
+      //     });
+      //   case ('Console Table'):
+      //     btn.addEventListener('click', () => {
+      //       console.table('This is a console table');
+      //     });
+      //   case ('Start Timer'):
+      //     btn.addEventListener('click', () => {
+      //       console.time('This is a console time');
+      //     });
+      //   case ('End Timer'):
+      //     btn.addEventListener('click', () => {
+      //       console.timeEnd('This is a console time end');
+      //     });
+      //   case ('Console Trace'):
+      //     btn.addEventListener('click', () => {
+      //       console.trace('This is a console trace');
+      //     });
+      //   case ('Trigger a Global Error'):
+      //     btn.addEventListener('click', () => {
+      //       throw new Error('This is a global error');
+      //     });
+      // }
+      btn.addEventListener('click', () => {
+        switch (btn.textContent) {
+          case 'Console Log' :
             console.log('This is a console log');
-          });
-        case ('Console Error'): 
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Error'): 
             console.error('This is a console error');
-          });
-        case ('Console Count'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Count'):
             console.count('This is a console count');
-          });
-        case ('Console Warn'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Warn'):
             console.warn('This is a console warn'); 
-          }); 
-        case ('Console Assert'): 
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Assert'): 
             console.assert('This is a console assert');
-          });
-        case ('Console Clear'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Clear'):
             console.clear();
-          });
-        case ('Console Dir'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Dir'):
             console.dir('This is a console dir');
-          });
-        case ('Console dirxml'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console dirxml'):
             console.dirxml('This is a console dirxml');
-          });        
-        case ('Console Group Start'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Group Start'):
             console.group('This is a console group start');
-          });        
-        case ('Console Group End'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Group End'):
             console.groupEnd('This is a console group end');
-          });
-        case ('Console Table'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Table'):
             console.table('This is a console table');
-          });
-        case ('Start Timer'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Start Timer'):
             console.time('This is a console time');
-          });
-        case ('End Timer'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('End Timer'):
             console.timeEnd('This is a console time end');
-          });
-        case ('Console Trace'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Console Trace'):
             console.trace('This is a console trace');
-          });
-        case ('Trigger a Global Error'):
-          btn.addEventListener('click', () => {
+            break;
+          case ('Trigger a Global Error'):
             throw new Error('This is a global error');
-          });
-      }
+            break;
+        }
+
+      });
     });
   </script>
 </body>
